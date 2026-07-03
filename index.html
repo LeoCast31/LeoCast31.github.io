@@ -1,240 +1,312 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leonardo Castillo | Portafolio UX/UI & Ingeniería</title>
+    <title>Leonardo Castillo | Portafolio UX/UI</title>
     <style>
-        /* Variables del Sistema - Soporte de Temas Nativo */
-        :root[data-theme="dark"] {
-            --bg-main: #0b0f19;
-            --bg-card: #111827;
-            --bg-track: #1f2937;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #ef4444;
-            --accent-hover: #dc2626;
-            --border: #374151;
-            --shadow: rgba(0, 0, 0, 0.4);
+        /* Estilos Web de Alta Gama - Scroll Continuo */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
-        :root[data-theme="light"] {
-            --bg-main: #f8fafc;
-            --bg-card: #ffffff;
-            --bg-track: #f1f5f9;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --accent: #e53e3e;
-            --accent-hover: #c53030;
-            --border: #e2e8f0;
-            --shadow: rgba(0, 0, 0, 0.05);
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.6;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; transition: background-color 0.3s, border-color 0.3s, color 0.3s; }
-        body { background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; }
+        /* Menú de Navegación Fijo Superior */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #e53e3e;
+            letter-spacing: -0.5px;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #e53e3e;
+        }
 
-        /* Estructura de Aplicación Profesional */
-        .app-container { display: flex; min-height: 100vh; }
+        /* Contenedor de Secciones con Espaciado Fluido */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 40px 20px; /* Margen superior para no tapar con el menú fijo */
+        }
 
-        /* Barra de Navegación Lateral */
-        aside { width: 280px; background: var(--bg-card); border-right: 1px solid var(--border); padding: 40px 24px; display: flex; flex-direction: column; justify-content: space-between; position: fixed; height: 100vh; z-index: 10; }
-        .profile-area .avatar-placeholder { width: 80px; height: 80px; background: var(--accent); color: white; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; margin-bottom: 20px; box-shadow: 0 8px 16px rgba(239, 68, 68, 0.2); }
-        .profile-area h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
-        .profile-area p { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+        /* Sección de Bienvenida (Hero) */
+        .hero {
+            padding: 60px 0 80px 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 60px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #0f172a;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+        }
+        .hero h1 span {
+            color: #e53e3e;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #64748b;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
 
-        .nav-menu { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; }
-        .nav-btn { background: transparent; border: none; padding: 12px 16px; text-align: left; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 12px; width: 100%; }
-        .nav-btn:hover, .nav-btn.active { background: var(--bg-track); color: var(--accent); }
-
-        .theme-toggle-panel { background: var(--bg-track); padding: 6px; border-radius: 10px; display: flex; gap: 4px; }
-        .theme-btn { flex: 1; background: transparent; border: none; padding: 8px; color: var(--text-muted); border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 700; }
-        .theme-btn.active { background: var(--bg-card); color: var(--text-main); box-shadow: 0 2px 4px var(--shadow); }
-
-        /* Contenido Principal */
-        main { flex: 1; margin-left: 280px; padding: 60px; max-width: 1200px; width: calc(100% - 280px); }
-
-        .view-section { display: none; animation: fadeIn 0.4s ease forwards; }
-        .view-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hero-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 15px; }
-        .hero-title span { color: var(--accent); }
-        .subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; max-width: 800px; }
-
-        /* KPI Estadísticos */
-        .metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 45px; }
-        .metric-card { background: var(--bg-card); border: 1px solid var(--border); padding: 24px; border-radius: 14px; box-shadow: 0 4px 6px var(--shadow); }
-        .metric-card .num { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
-        .metric-card .label { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
-
-        /* Contenedores Modulares */
-        .info-panel { background: var(--bg-card); border: 1px solid var(--border); padding: 35px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 4px 6px var(--shadow); }
-        .panel-heading { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .panel-heading::before { content: ""; width: 4px; height: 18px; background: var(--accent); border-radius: 2px; }
+        .section-title {
+            font-size: 1.5rem;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            background: #e53e3e;
+            border-radius: 4px;
+        }
 
         /* Habilidades */
-        .skills-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-        .matrix-item { background: var(--bg-track); padding: 16px; border-radius: 10px; border: 1px solid var(--border); }
-        .matrix-info { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; }
-        .bar-container { width: 100%; height: 6px; background: var(--bg-card); border-radius: 3px; overflow: hidden; }
-        .bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+        .skills-section {
+            margin-bottom: 80px;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-tag {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #334155;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            border-color: #e53e3e;
+            color: #e53e3e;
+            transform: translateY(-2px);
+        }
 
-        /* Proyectos Estilo Web */
-        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
-        .showcase-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px var(--shadow); display: flex; flex-direction: column; height: 100%; }
-        .media-slot { background: var(--bg-track); height: 220px; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid var(--border); overflow: hidden; }
-        .media-slot img { width: 100%; height: 100%; object-fit: cover; }
-        .media-slot .placeholder-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; text-align: center; padding: 20px; position: absolute; }
+        /* DISEÑO DE PROYECTOS INTEGRADOS (Línea por línea al bajar) */
+        .projects-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+        }
+        .project-row {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
+            transition: box-shadow 0.3s;
+        }
+        .project-row:hover {
+            box-shadow: 0 20px 40px -15px rgba(229, 62, 62, 0.08);
+        }
         
-        .card-details { padding: 30px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-tag { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
-        .card-details h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
-        .card-details p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        /* Contenedor de Texto del Proyecto */
+        .project-info {
+            flex: 1.1;
+            padding: 45px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .project-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #e53e3e;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+        .project-info h3 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .project-details h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #1e293b;
+            margin-bottom: 8px;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+        .project-details h4:first-child {
+            margin-top: 0;
+        }
+        .project-details p {
+            color: #475569;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .project-details ul {
+            margin-left: 20px;
+            color: #475569;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+        .project-details li {
+            margin-bottom: 6px;
+        }
+        .badge {
+            background-color: #fff5f5;
+            color: #c53030;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: 600;
+        }
 
-        .workspace-block { border-left: 3px solid var(--accent); padding-left: 20px; margin-top: 15px; background: var(--bg-track); padding: 20px; border-radius: 0 10px 10px 0; }
-        .workspace-block h5 { font-size: 0.9rem; text-transform: uppercase; color: var(--text-main); margin-bottom: 6px; }
-        .workspace-block p { font-size: 0.9rem; margin-bottom: 12px; }
-        .workspace-block ul { margin-left: 15px; font-size: 0.85rem; color: var(--text-muted); }
-        .workspace-block li { margin-bottom: 4px; }
-        .badge { background: var(--bg-card); border: 1px solid var(--border); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; font-weight: 600; margin-right: 5px; }
+        /* Contenedor de la Imagen Lateral */
+        .project-image-area {
+            flex: 0.9;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            position: relative;
+            border-left: 1px solid #e2e8f0;
+        }
+        .project-image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .image-placeholder {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 30px;
+            position: absolute;
+            z-index: 1;
+        }
 
-        @media (max-width: 768px) {
-            aside { width: 100%; height: auto; position: relative; padding: 20px; }
-            .app-container { flex-direction: column; }
-            main { margin-left: 0; padding: 30px 20px; width: 100%; }
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding: 40px;
+            border-top: 1px solid #e2e8f0;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
-        <!-- Menú Lateral -->
-        <aside>
-            <div class="top-meta">
-                <div class="profile-area">
-                    <div class="avatar-placeholder">LC</div>
-                    <h2>Leonardo C.</h2>
-                    <p>Ingeniería de Software & UX</p>
-                </div>
-                <div class="nav-menu">
-                    <button class="nav-btn active" onclick="switchView('console')">🎛️ Consola Principal</button>
-                    <button class="nav-btn" onclick="switchView('projects')">🚀 Arquitecturas</button>
-                    <button class="nav-btn" onclick="window.location.href='mailto:tu-correo@email.com'">✉️ Contacto</button>
-                </div>
+    <!-- Menú Superior Fijo -->
+    <nav>
+        <div class="logo">LEONARDO.CASTILLO</div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="mailto:tu-correo@email.com">Contacto</a>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        
+        <!-- SECCIÓN 1: INICIO -->
+        <div id="inicio" class="hero">
+            <h1>Hola, soy <span>Leonardo</span></h1>
+            <p>Portafolio UX/UI // Diseño de Experiencias Digitales con Claridad Visual</p>
+            <div style="color: #475569; font-size: 1.1rem; max-width: 850px;">
+                Diseño soluciones lógicas e interfaces limpias mediante el desglose analítico de requerimientos. Creo estructuras web escalables orientadas a la optimización de flujos y navegación interactiva de usuario.
             </div>
-            <div class="theme-toggle-panel">
-                <button id="theme-dark-btn" class="theme-btn active" onclick="setTheme('dark')">Oscuro</button>
-                <button id="theme-light-btn" class="theme-btn" onclick="setTheme('light')">Claro</button>
+        </div>
+
+        <!-- SECCIÓN 2: HABILIDADES -->
+        <section id="habilidades" class="skills-section">
+            <h2 class="section-title">Stack Técnico</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Desarrollo Web</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Entornos Linux</span>
+                <span class="skill-tag">Diseño UI/UX</span>
             </div>
-        </aside>
+        </section>
 
-        <!-- Espacio del Dashboard -->
-        <main>
-            <!-- VISTA 1: CONSOLA PRINCIPAL -->
-            <div id="view-console" class="view-section active">
-                <h1 class="hero-title">Sistemas <span>UX/UI</span></h1>
-                <p class="subtitle">Análisis matemático de requerimientos lógicos y maquetación interactiva de interfaces limpias, optimizadas para la resolución de flujos de usuario estructurados.</p>
-
-                <div class="metrics-row">
-                    <div class="metric-card"><div class="num">02</div><div class="label">Sistemas Visuales</div></div>
-                    <div class="metric-card"><div class="num">08</div><div class="label">Módulos Técnicos</div></div>
-                    <div class="metric-card"><div class="num">100%</div><div class="label">GitHub Desplegado</div></div>
-                </div>
-
-                <div class="info-panel">
-                    <div class="panel-heading">Matriz de Habilidades de Ingeniería</div>
-                    <div class="skills-matrix">
-                        <div class="matrix-item">
-                            <div class="matrix-info"><span>Desarrollo C / C++</span><span>90%</span></div>
-                            <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
-                        </div>
-                        <div class="matrix-item">
-                            <div class="matrix-info"><span>Estructuras en Java</span><span>85%</span></div>
-                            <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
-                        </div>
-                        <div class="matrix-item">
-                            <div class="matrix-info"><span>Lógica en Python</span><span>80%</span></div>
-                            <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
-                        </div>
-                        <div class="matrix-item">
-                            <div class="matrix-info"><span>Ingeniería UI/UX</span><span>95%</span></div>
-                            <div class="bar-container"><div class="bar-fill" style="width: 95%;"></div></div>
+        <!-- SECCIÓN 3: PROYECTOS (Aparecen secuencialmente al bajar) -->
+        <section id="proyectos">
+            <h2 class="section-title">Sistemas Visuales Desarrollados</h2>
+            <div class="projects-layout">
+                
+                <!-- CASO 1: SPRINT DESIGN -->
+                <div class="project-row">
+                    <div class="project-info">
+                        <span class="project-meta">Caso de Estudio I // Interfaz Omnia</span>
+                        <h3>Sprint Design</h3>
+                        
+                        <div class="project-details">
+                            <h4>Objetivo del Proyecto</h4>
+                            <p>Estructurar e idear una interfaz de alta fidelidad optimizada para pantallas comerciales de tabletas dentro de espacios con baja iluminación, garantizando una navegación expedita y gestión de comandas en zonas VIP de Nueva York.</p>
+                            
+                            <h4>Estado del Sistema</h4>
+                            <p>Fase de mapeo estructural de interacciones rápidas y flujos de pantallas adaptadas al contexto comercial nocturno.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- VISTA 2: SECCIÓN DE PROYECTOS -->
-            <div id="view-projects" class="view-section">
-                <h1 class="hero-title">Galería de <span>Sistemas</span></h1>
-                <p class="subtitle">Casos de estudio reales extraídos analíticamente y optimizados para entornos interactivos avanzados.</p>
-
-                <div class="showcase-grid">
-                    <!-- PROYECTO 1: SPRINT DESIGN -->
-                    <div class="showcase-card">
-                        <div class="media-slot">
-                            <img src="omnia.jpg" alt="Sprint Design Omnia" onerror="this.style.display='none';">
-                            <div class="placeholder-text">Subir archivo 'omnia.jpg' a GitHub para renderizar mockup</div>
-                        </div>
-                        <div class="card-details">
-                            <div>
-                                <span class="card-tag">Metodología Ágil</span>
-                                <h3>Sprint Design // Omnia</h3>
-                                <p>Interfaz de alta fidelidad para tabletas en zonas VIP comerciales nocturnas con baja iluminación dentro de Nueva York.</p>
-                            </div>
-                            <div class="workspace-block">
-                                <h5>Objetivo y Estado</h5>
-                                <p>Estructurar una navegación expedita y gestión de comandas en entornos oscuros. Actualmente en fase de mapeo de requerimientos.</p>
-                                <span class="badge">Tableta</span><span class="badge">VIP</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PROYECTO 2: VIGOR -->
-                    <div class="showcase-card">
-                        <div class="media-slot">
-                            <img src="vigor.jpg" alt="Vigor Fitness UI" onerror="this.style.display='none';">
-                            <div class="placeholder-text">Subir archivo 'vigor.jpg' a GitHub para renderizar mockup</div>
-                        </div>
-                        <div class="card-details">
-                            <div>
-                                <span class="card-tag">Ecosistema Completo</span>
-                                <h3>VIGOR – Premium Fitness App</h3>
-                                <p>Estrategia integral que fusiona flujos optimizados, cálculo calórico automatizado y soporte inteligente.</p>
-                            </div>
-                            <div class="workspace-block">
-                                <h5>Módulos Estratégicos</h5>
-                                <p>Autenticación fluida y respuesta inmediata:</p>
-                                <ul>
-                                    <li>Acceso vía <span class="badge">FaceID</span> / Código <span class="badge">QR</span></li>
-                                    <li>Nutricionista automatizado con <span class="badge">IA</span></li>
-                                    <li>Estructuración UX mediante diagramas de Venn</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="project-image-area">
+                        <!-- Busca este archivo img en tu GitHub. Si no existe, se oculta y muestra el texto guía -->
+                        <img src="omnia.jpg" alt="Sprint Design Omnia" onerror="this.style.display='none';">
+                        <div class="image-placeholder">Previsualización de Omnia<br>(Sube el archivo 'omnia.jpg' a tu GitHub)</div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
-    <script>
-        function switchView(viewName) {
-            // Oculta todas las secciones
-            document.querySelectorAll('.view-section').forEach(section => section.classList.remove('active'));
-            // Quita el estado activo de los botones
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            
-            // Activa la sección y el botón correspondiente
-            document.getElementById('view-' + viewName).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
 
-        function setTheme(themeName) {
-            // Cambia el atributo data-theme en la etiqueta HTML
-            document.documentElement.setAttribute('data-theme', themeName);
-            // Actualiza los botones del selector
-            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('theme-' + themeName + '-btn').classList.add('active');
-        }
-    </script>
-</body>
-</html>
