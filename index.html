@@ -3,27 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leonardo Castillo | Portafolio Profesional</title>
+    <title>Leonardo Castillo | Portafolio Corporativo</title>
     <style>
-        /* Diseño Inmersivo de Pantalla Completa */
-        html, body { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            overflow: hidden; 
-            background-color: #ffffff; 
+        /* Estilos Base Estilo Corporativo Global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
-        iframe { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-            display: block; 
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0c101d; /* Azul muy oscuro corporativo */
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Barra de Navegación Estilo Leonardo S.p.A. */
+        nav {
+            background: rgba(12, 16, 29, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        nav .logo span {
+            color: #e53e3e;
+        }
+        nav .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        .menu-icon {
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* SECCIÓN HERO PRINCIPAL INMERSIVA (Pantalla Completa) */
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10% 0 10%;
+            position: relative;
+            background: linear-gradient(135px, #0f1524 0%, #070a12 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(229, 62, 62, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-content {
+            max-width: 850px;
+            text-align: left;
+            z-index: 2;
+        }
+        .hero-content .category-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #e53e3e;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        /* CONTENEDOR DE SECCIONES SECUNDARIAS */
+        .main-container {
+            width: 100%;
+            background-color: #070a12;
+        }
+
+        /* Habilidades Estilo Panel Técnico */
+        .section-padding {
+            padding: 100px 10%;
+        }
+        .section-headline {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .section-headline::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #e53e3e;
+            margin-top: 10px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .skill-card {
+            background: #0f1524;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 4px;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .skill-card:hover {
+            border-color: #e53e3e;
+            transform: translateY(-4px);
+        }
+        .skill-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* DISEÑO DE FILAS DE PROYECTO ANCHO COMPLETO ASIMÉTRICO */
+        .project-row {
+            display: flex;
+            width: 100%;
+            min-height: 80vh;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .project-content-col {
+            flex: 1.2;
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            background-color: #0c101d;
+        }
+        .project-info-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #e53e3e;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        .project-content-col h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+        .info-module {
+            margin-bottom: 25px;
+        }
+        .info-module h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .info-module p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+        }
+        .info-module ul {
+            margin-left: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+        .info-module li {
+            margin-bottom: 6px;
+        }
+        .badge {
+            background-color: rgba(229, 62, 62, 0.1);
+            color: #e53e3e;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* Columna de Imagen Limpia de Extremo a Extremo */
+        .project-image-col {
+            flex: 0.8;
+            background-color: #0a0e1a;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .project-image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0; left: 0;
+        }
+        .fallback-caption {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            z-index: 1;
+            padding: 30px;
+        }
+
+        /* Pie de Página */
+        footer {
+            background: #070a12;
+            padding: 50px 10%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 992px) {
+            .hero-section { padding: 0 40px; }
+            .hero-content h1 { font-size: 3.2rem; }
+            .project-row { flex-direction: column; }
+            .project-content-col { padding: 60px 40px; }
+            .project-image-col { min-height: 350px; }
         }
     </style>
 </head>
 <body>
-    <!-- REEMPLAZA EL LINK DE ABAJO POR TU ENLACE REAL DE WIX -->
-    <iframe src="https://wixsite.com"></iframe>
-</body>
-</html>
+
+    <!-- Menú Superior Corporativo -->
+    <nav>
+        <div class="logo">LEONARDO<span>.</span>CASTILLO</div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#capacidades">Capacidades</a>
+                <a href="#proyectos">Portafolio</a>
+            </div>
+            <div class="menu-icon">☰</div>
+        </div>
+    </nav>
+
+    <!-- PANTALLA INMERSIVA HERO -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-content">
+            <span class="category-tag">Ingeniería UX/UI</span>
+            <h1>Estructura Lógica y Sistemas Visuales</h1>
+            <p>Modelado lógico de interfaces de usuario y optimización de arquitecturas digitales. Orientado al desglose analítico de requerimientos y al diseño de flujos e interacciones de alta claridad y rendimiento.</p>
+        </div>
+    </section>
+
+    <div class="main-container">
+        
+        <!-- SECCIÓN CAPACIDADES (HABILIDADES) -->
+        <section id="capacidades" class="section-padding">
+            <h2 class="section-headline">Capacidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><h4>C / C++</h4><p style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:5px;">Sistemas y Algoritmos</p></div>
+                <div class="skill-card"><h4>Java</h4><p style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:5px;">Estructuras de Control</p></div>
+                <div class="skill-card"><h4>Python</h4><p style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:5px;">Automatización Lógica</p></div>
+                <div class="skill-card"><h4>Desarrollo Web</h4><p style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:5px;">HTML5 / CSS3 Nativo</p></div>
