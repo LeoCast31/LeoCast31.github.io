@@ -5,135 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leonardo Castillo | Portafolio UX/UI</title>
     <style>
+        /* Estilos Globales Únicos - Paleta Blanca, Gris y Rojo Editorial */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #ffffff; color: #2d3748; line-height: 1.6; }
-        .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 20px; }
-        header { text-align: left; border-bottom: 4px solid #e53e3e; padding-bottom: 25px; margin-bottom: 45px; }
-        header h1 { font-size: 3rem; color: #1a202c; font-weight: 800; }
-        header p { font-size: 1.2rem; color: #718096; margin-top: 5px; }
+        body { background-color: #fafafa; color: #2d3748; line-height: 1.6; padding: 0 20px; }
+        
+        .main-wrapper { max-width: 850px; margin: 60px auto; background: #ffffff; padding: 50px; border-radius: 16px; box-shadow: 0 4px 25px rgba(0,0,0,0.02); }
+        
+        /* Encabezado Asimétrico */
+        header { text-align: left; padding-bottom: 35px; margin-bottom: 50px; border-bottom: 1px solid #e2e8f0; }
+        header h1 { font-size: 3.4rem; color: #1a202c; font-weight: 800; letter-spacing: -1px; }
+        header p { font-size: 1.3rem; color: #e53e3e; font-weight: 600; margin-top: 5px; }
+
         section { margin-bottom: 50px; }
-        .section-title { font-size: 1.6rem; color: #1a202c; margin-bottom: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-        .section-title::before { content: ""; display: inline-block; width: 10px; height: 22px; background-color: #e53e3e; }
-        .bio-box { background: #f7fafc; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; font-size: 1.1rem; }
+        .section-title { font-size: 1.2rem; color: #a0aec0; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 700; }
+        
+        /* Sobre Mí */
+        .bio-box { font-size: 1.2rem; color: #4a5568; max-width: 700px; }
+
+        /* Habilidades en Línea Fina */
         .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: #ffffff; border: 1px solid #e2e8f0; padding: 8px 18px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .project-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; cursor: pointer; text-decoration: none; display: block; color: inherit; transition: transform 0.2s; }
-        .project-card:hover { transform: translateY(-4px); border-color: #e53e3e; }
-        .project-tag { font-size: 0.75rem; text-transform: uppercase; color: #e53e3e; font-weight: 700; margin-bottom: 8px; display: block; }
-        .project-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .project-card p { color: #718096; font-size: 0.95rem; margin-bottom: 15px; }
-        .action-text { font-size: 0.9rem; font-weight: 700; color: #e53e3e; }
-        .modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(26, 32, 44, 0.8); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 1000; }
-        .modal:target { opacity: 1; pointer-events: auto; }
-        .modal-content { background: #ffffff; width: 90%; max-width: 750px; max-height: 80vh; border-radius: 12px; padding: 35px; position: relative; overflow-y: auto; border-top: 6px solid #e53e3e; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; text-decoration: none; color: #a0aec0; font-weight: bold; }
-        .close-modal:hover { color: #e53e3e; }
-        .modal-inner-section { margin-top: 20px; padding-top: 15px; border-top: 1px solid #edf2f7; }
-        .modal-inner-section h4 { font-size: 1rem; margin-bottom: 8px; text-transform: uppercase; }
-        .modal-inner-section ul { margin-left: 20px; margin-top: 8px; }
-        .modal-inner-section li { margin-bottom: 6px; }
-        .badge { background-color: #fff5f5; color: #c53030; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
-        footer { margin-top: 60px; padding: 30px; border-top: 1px solid #e2e8f0; text-align: center; color: #a0aec0; font-size: 0.85rem; }
+        .skill-tag { background: #f7fafc; border: 1px solid #e2e8f0; padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; color: #4a5568; }
+
+        /* DISEÑO DE LÍNEA DE TIEMPO VERTICAL (Cero parecidos con Israel) */
+        .timeline { position: relative; border-left: 3px solid #edf2f7; margin-left: 10px; padding-left: 30px; }
+        
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item::before { content: ""; position: absolute; left: -38px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #e53e3e; border: 3px solid #ffffff; box-shadow: 0 0 0 3px #e53e3e; }
+        
+        .project-meta { font-size: 0.85rem; text-transform: uppercase; color: #e53e3e; font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; }
+        .timeline-item h3 { font-size: 1.6rem; color: #1a202c; margin-bottom: 15px; }
+        .project-content-block { background: #fcfcfc; border: 1px solid #edf2f7; padding: 30px; border-radius: 10px; margin-top: 15px; }
+        
+        .project-content-block h4 { font-size: 1rem; text-transform: uppercase; color: #4a5568; margin-bottom: 8px; margin-top: 15px; }
+        .project-content-block h4:first-child { margin-top: 0; }
+        .project-content-block p { color: #4a5568; font-size: 1rem; margin-bottom: 10px; }
+        
+        .project-content-block ul { margin-left: 20px; color: #4a5568; font-size: 0.95rem; }
+        .project-content-block li { margin-bottom: 6px; }
+        
+        .badge { background-color: #fff5f5; color: #c53030; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9rem; }
+        .venn-box { background: #ffffff; border-left: 3px solid #e53e3e; padding: 15px; margin-top: 10px; border-radius: 0 8px 8px 0; }
+
+        footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #a0aec0; font-size: 0.85rem; }
     </style>
 </head>
 <body>
+
     <div class="main-wrapper">
+        <!-- Encabezado -->
         <header>
             <h1>Leonardo Castillo</h1>
-            <p>Portafolio UX/UI | Diseño de Experiencias Digitales con Claridad Visual</p>
+            <p>Portafolio UX/UI // Soluciones de Claridad Visual</p>
         </header>
+
+        <!-- Sobre Mí -->
         <section>
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="bio-box">Diseño soluciones lógicas e interfaces limpias. Creo estructuras web escalables que balancean los objetivos del proyecto con interacciones fluidas y eficientes para el usuario.</div>
+            <h2 class="section-title">Enfoque</h2>
+            <div class="bio-box">
+                Diseño soluciones lógicas e interfaces limpias mediante el desglose analítico de requerimientos. Creo estructuras web escalables orientadas a la optimización de flujos y navegación interactiva de usuario.
+            </div>
         </section>
+
+        <!-- Habilidades -->
         <section>
-            <h2 class="section-title">Habilidades</h2>
+            <h2 class="section-title">Stack Técnico</h2>
             <div class="skills-container">
                 <span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span>
                 <span class="skill-tag">Desarrollo Web</span><span class="skill-tag">GitHub</span><span class="skill-tag">Entornos Linux</span><span class="skill-tag">Diseño UI/UX</span>
             </div>
         </section>
+
+        <!-- Sección de Proyectos Exclusivos -->
         <section>
-            <h2 class="section-title">Dos proyectos, dos sistemas visuales</h2>
-            <div class="projects-grid">
-                <a href="#modal-sprint" class="project-card">
-                    <span class="project-tag">Tarjeta 1 - Interfaz Omnia</span>
+            <h2 class="section-title">Sistemas Visuales Desarrollados</h2>
+            
+            <div class="timeline">
+                
+                <!-- PROYECTO 1: SPRINT DESIGN -->
+                <div class="timeline-item">
+                    <span class="project-meta">Caso de Estudio I // Interfaz Omnia</span>
                     <h3>Sprint Design</h3>
-                    <p>Diseñar una aplicación para tableta destinada a una discoteca de Nueva York.</p>
-                    <span class="action-text">Ver caso de estudio →</span>
-                </a>
-                <a href="#modal-vigor" class="project-card">
-                    <span class="project-tag">Tarjeta 2 - Caso Principal</span>
+                    <p style="color: #718096; font-size: 1.1rem;">Diseño de aplicación comercial para tableta destinada a entornos nocturnos en Nueva York.</p>
+                    
+                    <div class="project-content-block">
+                        <h4>Objetivo del Proyecto</h4>
+                        <p>Estructurar e idear una interfaz de alta fidelidad optimizada para pantallas comerciales dentro de espacios de baja iluminación, garantizando una navegación expedita y gestión de comandas en zonas VIP.</p>
+                        
+                        <h4>Estado del Sistema</h4>
+                        <p>Fase de mapeo estructural de interacciones rápidas y flujos de pantallas adaptadas al contexto comercial nocturno.</p>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 2: VIGOR -->
+                <div class="timeline-item">
+                    <span class="project-meta">Caso de Estudio II // Aplicación Principal</span>
                     <h3>VIGOR – Premium Fitness App</h3>
-                    <p>Caso de estudio que reúne estrategia, flujos, metodología, wireframes y prototipo final con fitness.</p>
-                    <span class="action-text">Ver caso de estudio →</span>
-                </a>
-                <a href="#modal-veterinaria" class="project-card">
-                    <span class="project-tag">Proyecto 3 - Código</span>
-                    <h3>Clínica Veterinaria San Francisco</h3>
-                    <p>Página web responsiva e interactiva creada para la gestión de servicios veterinarios.</p>
-                    <span class="action-text">Ver sitio web →</span>
-                </a>
+                    <p style="color: #718096; font-size: 1.1rem;">Plataforma integral de diseño UX/UI enfocado en el acondicionamiento físico de alto rendimiento.</p>
+                    
+                    <div class="project-content-block">
+                        <h4>Objetivo del Portal Digital</h4>
+                        <p>El ecosistema digital <span class="badge">VIGOR®</span> permite a los usuarios iniciar sesión mediante autenticación biométrica con <span class="badge">FaceID</span>, generar accesos inmediatos vía código <span class="badge">QR</span>, dar seguimiento a rutinas estructuradas y consultar un nutricionista automatizado con <span class="badge">IA</span>.</p>
+                        
+                        <h4>Desglose Estratégico</h4>
+                        <ul>
+                            <li><strong>Metodología:</strong> Planes de entrenamiento guiados, cálculo calórico y asistencia digital 24/7.</li>
+                            <li><strong>Usuarios Objetivo:</strong> Socios activos e integrantes de nuevo ingreso al complejo deportivo.</li>
+                            <li><strong>Métricas de Control:</strong> Tasa de adopción del aplicativo, volumen de consultas resueltas por la IA y retención de usuarios.</li>
+                        </ul>
+
+                        <h4>Metodología UX (Estructura del Sistema)</h4>
+                        <div class="venn-box">
+                            <p><strong>• Wireframe:</strong> Arquitectura inicial centrada en la ubicación exacta del botón para el pase QR verde.</p>
+                            <p><strong>• Mockup:</strong> Identidad estética corporativa bajo entorno Dark Mode y tipografías oficiales de marca.</p>
+                            <p><strong>• Prototipo:</strong> Conexiones lógicas interactivas y simulación del disparador (+) para añadir rutinas.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
-        <footer><p>© 2026 Leonardo Castillo. Desarrollado nativamente sobre GitHub Pages.</p></footer>
+
+        <footer>
+            <p>© 2026 Leonardo Castillo. Portafolio de ingeniería desplegado en GitHub Pages.</p>
+        </footer>
     </div>
 
-    <!-- MODAL SPRINT DESIGN -->
-    <div id="modal-sprint" class="modal">
-        <div class="modal-content">
-            <a href="#" class="close-modal">&times;</a>
-            <h2>Sprint Design - Interfaz Omnia</h2>
-            <p style="color: #718096; margin-top: 4px;">Discoteca de Nueva York</p>
-            <div class="modal-inner-section">
-                <h4>Objetivo del Proyecto</h4>
-                <p>Estructurar e idear una interfaz de alta fidelidad optimizada para tabletas comerciales dentro de entornos con baja iluminación, permitiendo una navegación expedita y gestión de comandas premium en zonas VIP.</p>
-            </div>
-            <div class="modal-inner-section">
-                <h4>Estado</h4>
-                <p>En espera... Mapeo de interacciones rápidas y flujos de pantallas adaptadas al contexto comercial nocturno.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL VIGOR -->
-    <div id="modal-vigor" class="modal">
-        <div class="modal-content">
-            <a href="#" class="close-modal">&times;</a>
-            <h2>VIGOR – Premium Fitness App</h2>
-            <p style="color: #718096; margin-top: 4px;">Metodología de Diseño UX/UI Completa</p>
-            <div class="modal-inner-section">
-                <h4>Objetivo del Portal Digital VIGOR</h4>
-                <p>Nuestro portal digital <span class="badge">VIGOR®</span> permitirá a los usuarios iniciar sesión con <span class="badge">FaceID</span>, usar un pase <span class="badge">QR</span>, seguir rutinas y consultar un nutricionista con <span class="badge">IA</span>, lo cual afectará a los socios actuales y nuevos por darles autonomía y respuestas 24/7 sin hacer filas.</p>
-                <ul>
-                    <li><strong>Estrategia (Cómo):</strong> Entrenamientos guiados, registro de calorías y asesoría automatizada por IA.</li>
-                    <li><strong>Destinado a:</strong> Socios actuales y nuevos integrantes del club fitness.</li>
-                    <li><strong>Métricas de éxito:</strong> Adopción del portal, consultas resueltas por la IA y retención semanal.</li>
-                </ul>
-            </div>
-            <div class="modal-inner-section">
-                <h4>Estructura (Diagrama de Venn)</h4>
-                <ul>
-                    <li><strong>Wireframe (Esqueleto):</strong> Estructura inicial centrada en botones, ubicación del QR verde y espacios de rutinas.</li>
-                    <li><strong>Mockup (Estilo):</strong> Estética visual en Dark Mode y colores de marca definidos.</li>
-                    <li><strong>Prototipo (Interacción):</strong> Nexos interactivos y simulación de clics del botón (+) en tiempo real.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL VETERINARIA -->
-    <div id="modal-veterinaria" class="modal">
-        <div class="modal-content">
-            <a href="#" class="close-modal">&times;</a>
-            <h2>Clínica Veterinaria San Francisco</h2>
-            <p style="color: #718096; margin-top: 4px;">Despliegue Frontend</p>
-            <div class="modal-inner-section">
-                <h4>Información de la Interfaz</h4>
-                <p>Página web responsiva e interactiva diseñada para la gestión de servicios médicos veterinarios, control de citas para mascotas y despliegue responsivo completo.</p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
