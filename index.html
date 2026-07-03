@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leonardo Castillo | Portafolio UX/UI</title>
+    <title>Leonardo Castillo | Portfolio</title>
     <style>
-        /* Estilos Web de Alta Gama - Scroll Continuo */
+        /* Estilos Web de Alta Gama - Secciones de Pantalla Completa */
         * {
             margin: 0;
             padding: 0;
@@ -16,17 +16,15 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: #ffffff;
+            background-color: #0b0f19; /* Fondo oscuro base para evitar destellos */
             color: #1e293b;
-            line-height: 1.6;
         }
 
-        /* Menú de Navegación Fijo Superior */
+        /* Menú Superior Flotante */
         nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 40px;
-            border-bottom: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,276 +35,281 @@
             z-index: 100;
         }
         nav .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
+            font-size: 1.2rem;
+            font-weight: 900;
             color: #e53e3e;
-            letter-spacing: -0.5px;
+            letter-spacing: 1px;
         }
         nav .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
         nav a {
             text-decoration: none;
-            color: #64748b;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         nav a:hover {
             color: #e53e3e;
         }
 
-        /* Contenedor de Secciones con Espaciado Fluido */
-        .wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 20px 40px 20px; /* Margen superior para no tapar con el menú fijo */
-        }
-
-        /* Sección de Bienvenida (Hero) */
-        .hero {
-            padding: 60px 0 80px 0;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 60px;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #0f172a;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            margin-bottom: 15px;
-        }
-        .hero h1 span {
-            color: #e53e3e;
-        }
-        .hero p {
-            font-size: 1.3rem;
-            color: #64748b;
-            max-width: 800px;
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            color: #0f172a;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 35px;
+        /* CADA SECCIÓN OCUPA EL 100% DE LA PANTALLA */
+        .fullscreen-section {
+            min-height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 12px;
-        }
-        .section-title::before {
-            content: "";
-            display: inline-block;
-            width: 5px;
-            height: 22px;
-            background: #e53e3e;
-            border-radius: 4px;
+            padding: 100px 80px 40px 80px;
+            position: relative;
         }
 
-        /* Habilidades */
-        .skills-section {
-            margin-bottom: 80px;
+        /* Sección de Bienvenida */
+        #inicio {
+            background-color: #ffffff;
+            justify-content: flex-start;
+        }
+        .hero-content {
+            max-width: 900px;
+            text-align: left;
+        }
+        .hero-content h1 {
+            font-size: 4.8rem;
+            color: #0f172a;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 span {
+            color: #e53e3e;
+        }
+        .hero-content p {
+            font-size: 1.4rem;
+            color: #e53e3e;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+        .hero-bio {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* Sección de Habilidades Modulares */
+        #habilidades {
+            background-color: #f8fafc;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 35px;
         }
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 16px;
+            max-width: 900px;
         }
         .skill-tag {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #334155;
-            transition: all 0.2s;
-        }
-        .skill-tag:hover {
-            border-color: #e53e3e;
-            color: #e53e3e;
-            transform: translateY(-2px);
-        }
-
-        /* DISEÑO DE PROYECTOS INTEGRADOS (Línea por línea al bajar) */
-        .projects-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 70px;
-        }
-        .project-row {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 20px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1e293b;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        /* ESTRUCTURA DIVIDIDA AL 100% PARA PROYECTOS */
+        .project-section {
             display: flex;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
-            transition: box-shadow 0.3s;
+            width: 100%;
+            min-height: 100vh;
+            padding-top: 80px;
         }
-        .project-row:hover {
-            box-shadow: 0 20px 40px -15px rgba(229, 62, 62, 0.08);
-        }
-        
-        /* Contenedor de Texto del Proyecto */
-        .project-info {
-            flex: 1.1;
-            padding: 45px;
-            text-align: left;
+        #sprint-project { background-color: #ffffff; }
+        #vigor-project { background-color: #f8fafc; flex-direction: row-reverse; }
+
+        /* Columna de Texto Exclusiva */
+        .project-text-column {
+            flex: 1;
+            padding: 60px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            text-align: left;
         }
         .project-meta {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             color: #e53e3e;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
-        }
-        .project-info h3 {
-            font-size: 2rem;
-            color: #0f172a;
+            font-weight: 800;
+            letter-spacing: 2px;
             margin-bottom: 15px;
-            font-weight: 700;
+        }
+        .project-text-column h2 {
+            font-size: 3rem;
+            color: #0f172a;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 30px;
         }
         
-        .project-details h4 {
-            font-size: 1rem;
+        .info-block {
+            margin-bottom: 30px;
+        }
+        .info-block h4 {
+            font-size: 0.95rem;
             text-transform: uppercase;
-            color: #1e293b;
+            color: #0f172a;
+            letter-spacing: 1px;
             margin-bottom: 8px;
-            margin-top: 20px;
-            letter-spacing: 0.5px;
+            font-weight: 800;
         }
-        .project-details h4:first-child {
-            margin-top: 0;
-        }
-        .project-details p {
+        .info-block p {
             color: #475569;
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
-        .project-details ul {
+        .info-block ul {
             margin-left: 20px;
             color: #475569;
-            font-size: 0.95rem;
-            margin-top: 5px;
+            font-size: 1.05rem;
+            margin-top: 8px;
         }
-        .project-details li {
-            margin-bottom: 6px;
+        .info-block li {
+            margin-bottom: 8px;
         }
         .badge {
             background-color: #fff5f5;
             color: #c53030;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 3px 10px;
+            border-radius: 6px;
             font-family: monospace;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
-        /* Contenedor de la Imagen Lateral */
-        .project-image-area {
-            flex: 0.9;
-            background: #f8fafc;
+        /* Columna de Imagen Ocupación Completa */
+        .project-image-column {
+            flex: 1;
+            background-color: #f1f5f9;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 450px;
-            position: relative;
-            border-left: 1px solid #e2e8f0;
+            overflow: hidden;
         }
-        .project-image-area img {
+        .project-image-column img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-        }
-        .image-placeholder {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-align: center;
-            padding: 30px;
             position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .image-fallback-text {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.5;
+            padding: 40px;
             z-index: 1;
         }
 
+        /* Footer */
         footer {
-            text-align: center;
-            margin-top: 100px;
+            background: #ffffff;
             padding: 40px;
-            border-top: 1px solid #e2e8f0;
+            text-align: center;
             color: #94a3b8;
             font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 1024px) {
+            .fullscreen-section { padding: 120px 40px 40px 40px; }
+            .project-section { flex-direction: column !important; }
+            .project-text-column { padding: 60px 40px; }
+            .project-image-column { min-height: 400px; }
+            .hero-content h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Menú Superior Fijo -->
+    <!-- Menú Fijo -->
     <nav>
-        <div class="logo">LEONARDO.CASTILLO</div>
+        <div class="logo">LEONARDO CASTILLO</div>
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#habilidades">Habilidades</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="mailto:tu-correo@email.com">Contacto</a>
+            <a href="#sprint-project">Omnia</a>
+            <a href="#vigor-project">Vigor</a>
         </div>
     </nav>
 
-    <div class="wrapper">
-        
-        <!-- SECCIÓN 1: INICIO -->
-        <div id="inicio" class="hero">
+    <!-- SECCIÓN 1: BIENVENIDA -->
+    <section id="inicio" class="fullscreen-section">
+        <div class="hero-content">
             <h1>Hola, soy <span>Leonardo</span></h1>
-            <p>Portafolio UX/UI // Diseño de Experiencias Digitales con Claridad Visual</p>
-            <div style="color: #475569; font-size: 1.1rem; max-width: 850px;">
+            <p>Portafolio UX/UI // Soluciones de Claridad Visual</p>
+            <div class="hero-bio">
                 Diseño soluciones lógicas e interfaces limpias mediante el desglose analítico de requerimientos. Creo estructuras web escalables orientadas a la optimización de flujos y navegación interactiva de usuario.
             </div>
         </div>
+    </section>
 
-        <!-- SECCIÓN 2: HABILIDADES -->
-        <section id="habilidades" class="skills-section">
-            <h2 class="section-title">Stack Técnico</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">C</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Desarrollo Web</span>
-                <span class="skill-tag">GitHub</span>
-                <span class="skill-tag">Entornos Linux</span>
-                <span class="skill-tag">Diseño UI/UX</span>
+    <!-- SECCIÓN 2: HABILIDADES -->
+    <section id="habilidades" class="fullscreen-section">
+        <h2 class="section-title">Stack Técnico</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Desarrollo Web</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Entornos Linux</span>
+            <span class="skill-tag">Diseño UI/UX</span>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: PROYECTO OMNIA (PANTALLA DIVIDIDA) -->
+    <section id="sprint-project" class="project-section">
+        <div class="project-text-column">
+            <span class="project-meta">Caso de Estudio I // Interfaz Omnia</span>
+            <h2>Sprint Design</h2>
+            
+            <div class="info-block">
+                <h4>Objetivo del Proyecto</h4>
+                <p>Estructurar e idear una interfaz de alta fidelidad optimizada para pantallas comerciales de tabletas dentro de espacios con baja iluminación, garantizando una navegación expedita y gestión de comandas en zonas VIP de Nueva York.</p>
             </div>
-        </section>
+            
+            <div class="info-block">
+                <h4>Estado del Sistema</h4>
+                <p>Fase de mapeo estructural de interacciones rápidas y flujos de pantallas adaptadas al contexto comercial nocturno.</p>
+            </div>
+        </div>
+        <div class="project-image-column">
+            <img src="omnia.jpg" alt="Sprint Design" onerror="this.style.display='none';">
+            <div class="image-fallback-text">Contenedor de Imagen 'omnia.jpg'<br><span style="font-size:0.85rem; font-weight:400; color:#cbd5e1;">Sube tu archivo a GitHub para cargarlo de fondo</span></div>
+        </div>
+    </section>
 
-        <!-- SECCIÓN 3: PROYECTOS (Aparecen secuencialmente al bajar) -->
-        <section id="proyectos">
-            <h2 class="section-title">Sistemas Visuales Desarrollados</h2>
-            <div class="projects-layout">
-                
-                <!-- CASO 1: SPRINT DESIGN -->
-                <div class="project-row">
-                    <div class="project-info">
-                        <span class="project-meta">Caso de Estudio I // Interfaz Omnia</span>
-                        <h3>Sprint Design</h3>
-                        
-                        <div class="project-details">
-                            <h4>Objetivo del Proyecto</h4>
-                            <p>Estructurar e idear una interfaz de alta fidelidad optimizada para pantallas comerciales de tabletas dentro de espacios con baja iluminación, garantizando una navegación expedita y gestión de comandas en zonas VIP de Nueva York.</p>
-                            
-                            <h4>Estado del Sistema</h4>
-                            <p>Fase de mapeo estructural de interacciones rápidas y flujos de pantallas adaptadas al contexto comercial nocturno.</p>
-                        </div>
-                    </div>
-                    <div class="project-image-area">
-                        <!-- Busca este archivo img en tu GitHub. Si no existe, se oculta y muestra el texto guía -->
-                        <img src="omnia.jpg" alt="Sprint Design Omnia" onerror="this.style.display='none';">
-                        <div class="image-placeholder">Previsualización de Omnia<br>(Sube el archivo 'omnia.jpg' a tu GitHub)</div>
-                    </div>
-                </div>
-
+    <!-- SECCIÓN 4: PROYECTO VIGOR (PANTALLA DIVIDIDA INVERTIDA) -->
+    <section id="vigor-project" class="project-section">
+        <div class="project-text-column">
