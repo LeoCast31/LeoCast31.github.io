@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeoCast31 | Dev Portfolio</title>
     <style>
-        /* Estilos Base - Modo Oscuro Cyberpunk/Software Premium */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Fira Code', 'Segoe UI', monospace;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
             background-color: #0b0f19;
             color: #e2e8f0;
             line-height: 1.6;
         }
-        
-        /* Contenedor Principal Estilo Tarjeta Flotante */
         .main-wrapper {
             max-width: 1000px;
             margin: 50px auto;
@@ -26,17 +23,13 @@
             background: rgba(17, 24, 39, 0.7);
             border: 1px solid #1f2937;
             border-radius: 16px;
-            backdrop-filter: blur(10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-
-        /* Encabezado de Alta Tecnología */
         header {
             text-align: left;
             border-bottom: 2px dashed #10b981;
             padding-bottom: 30px;
             margin-bottom: 40px;
-            position: relative;
         }
         header::before {
             content: "/** DEVELOPER PORTFOLIO */";
@@ -56,8 +49,6 @@
             color: #94a3b8;
             margin-top: 5px;
         }
-
-        /* Estructura de Secciones Asimétricas */
         section {
             margin-bottom: 60px;
             text-align: left;
@@ -75,8 +66,6 @@
             color: #10b981;
             font-weight: bold;
         }
-
-        /* Tarjeta de Biografía */
         .bio-box {
             background: #111827;
             border-left: 4px solid #10b981;
@@ -85,8 +74,6 @@
             font-size: 1.1rem;
             color: #cbd5e1;
         }
-
-        /* Habilidades con Estilo de Consola Linux */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -108,8 +95,6 @@
             background: #111827;
             transform: translateY(-2px);
         }
-
-        /* Cuadrícula de Proyectos en Modo Oscuro */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -125,7 +110,6 @@
         .project-card:hover {
             transform: translateY(-5px);
             border-color: #10b981;
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1);
         }
         .project-header-bar {
             background: #1f2937;
@@ -142,27 +126,17 @@
         }
         .dot:nth-child(2) { background: #eab308; }
         .dot:nth-child(3) { background: #22c55e; }
-        
         .project-body {
             padding: 25px;
         }
         .project-body h3 {
             color: #ffffff;
             margin-bottom: 10px;
-            font-size: 1.25rem;
         }
         .project-body p {
             color: #94a3b8;
             font-size: 0.95rem;
-            margin-bottom: 15px;
         }
-        .project-tags {
-            font-size: 0.8rem;
-            color: #10b981;
-            font-weight: bold;
-        }
-
-        /* Botón Terminal de Contacto */
         .btn-terminal {
             display: inline-block;
             background: transparent;
@@ -172,16 +146,12 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 8px;
-            margin-top: 15px;
             transition: all 0.3s;
         }
         .btn-terminal:hover {
             background: #10b981;
             color: #0b0f19;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
         }
-
-        /* Footer */
         footer {
             margin-top: 50px;
             padding-top: 25px;
@@ -195,21 +165,18 @@
 <body>
 
     <div class="main-wrapper">
-        <!-- Encabezado -->
         <header>
             <h1>LeoCast31</h1>
             <p>Ingeniería en Tecnologías de la Información | Innovación Digital</p>
         </header>
 
-        <!-- Sección 1: Perfil -->
         <section>
             <h2 class="section-title">Perfil Profesional</h2>
             <div class="bio-box">
-                Estudiante de tercer cuatrimestre enfocado en el desarrollo de software lógico, la resolución de problemas algorítmicos complejos y la creación de arquitecturas web eficientes. Apasionado por la optimización de código y entornos Linux.
+                Estudiante de tercer cuatrimestre enfocado en el desarrollo de software lógico, la resolución de problemas algorítmicos complejos y la creación de arquitecturas web eficientes.
             </div>
         </section>
 
-        <!-- Sección 2: Stack Tecnológico -->
         <section>
             <h2 class="section-title">Stack de Herramientas</h2>
             <div class="skills-grid">
@@ -222,39 +189,30 @@
             </div>
         </section>
 
-        <!-- Sección 3: Repositorio de Proyectos -->
         <section>
             <h2 class="section-title">Repositorio de Proyectos</h2>
             <div class="projects-grid">
-                
-                <!-- Tarjeta 1 -->
                 <div class="project-card">
                     <div class="project-header-bar">
                         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
                     </div>
                     <div class="project-body">
                         <h3>Smart Panel UI Optimization</h3>
-                        <p>Refactorización y diseño de lógica para interfaces móviles enfocadas en la gestión y análisis de métricas operativas.</p>
-                        <span class="project-tags">#UX/UI #Frontend</span>
+                        <p>Refactorización y diseño de lógica para interfaces móviles enfocadas en la gestión de métricas operativas.</p>
                     </div>
                 </div>
-
-                <!-- Tarjeta 2 -->
                 <div class="project-card">
                     <div class="project-header-bar">
                         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
                     </div>
                     <div class="project-body">
                         <h3>Estructuras de Control de Datos</h3>
-                        <p>Desarrollo de algoritmos de optimización para consolas locales orientadas al manejo de bases de datos relacionales.</p>
-                        <span class="project-tags">#C++ #Backend</span>
+                        <p>Desarrollo de algoritmos de optimización para consolas locales orientadas al manejo de datos relacionales.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Sección 4: Contacto -->
         <section style="text-align: center; margin-top: 40px;">
             <a href="mailto:tu-correo@email.com" class="btn-terminal">Ping Me (Email)</a>
         </section>
