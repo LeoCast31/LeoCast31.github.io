@@ -3,200 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Web</title>
+    <title>LeoCast31 | Dev Portfolio</title>
     <style>
+        /* Estilos Base - Modo Oscuro Cyberpunk/Software Premium */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Fira Code', 'Segoe UI', monospace;
         }
         body {
-            background-color: #ffffff;
-            color: #111111;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            line-height: 1.8;
-            text-align: center;
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            line-height: 1.6;
         }
+        
+        /* Contenedor Principal Estilo Tarjeta Flotante */
+        .main-wrapper {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Encabezado de Alta Tecnología */
         header {
-            padding: 80px 20px;
-            background: #ffffff;
-            border-bottom: 1px solid #eaeaea;
+            text-align: left;
+            border-bottom: 2px dashed #10b981;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        header::before {
+            content: "/** DEVELOPER PORTFOLIO */";
+            font-size: 0.8rem;
+            color: #10b981;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
         }
         header h1 {
-            font-size: 2.8rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-weight: 400;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            color: #ffffff;
+            font-weight: 800;
         }
         header p {
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #666;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-top: 5px;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+
+        /* Estructura de Secciones Asimétricas */
         section {
-            margin-bottom: 80px;
-        }
-        .section-number {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #888;
-            margin-bottom: 5px;
+            margin-bottom: 60px;
+            text-align: left;
         }
         .section-title {
-            font-size: 1.4rem;
-            letter-spacing: 2px;
-            text-transform: lowercase;
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-        .section-text {
-            font-size: 1.05rem;
-            color: #444;
-            max-width: 650px;
-            margin: 0 auto 30px auto;
-        }
-        .btn-contact {
-            display: inline-block;
-            background: #000000;
+            font-size: 1.5rem;
             color: #ffffff;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .btn-contact:hover {
-            background: #333333;
-        }
-        .skills-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .skill-tag {
-            border: 1px solid #e0e0e0;
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            border-radius: 20px;
-            color: #555;
-            background: #fafafa;
-        }
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            margin-top: 30px;
-        }
-        .project-item {
-            background: #ffffff;
-            padding: 20px;
-        }
-        .project-img-placeholder {
-            width: 100%;
-            height: 350px;
-            background: #fdfdfd;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            border: 1px solid #eee;
+            gap: 10px;
         }
-        footer {
-            padding: 40px 20px;
-            border-top: 1px solid #eaeaea;
-            font-size: 0.85rem;
-            color: #999;
-        }
-        .social-links {
-            margin-bottom: 15px;
-        }
-        .social-links a {
-            color: #111;
-            text-decoration: none;
-            margin: 0 10px;
+        .section-title::before {
+            content: ">_";
+            color: #10b981;
             font-weight: bold;
+        }
+
+        /* Tarjeta de Biografía */
+        .bio-box {
+            background: #111827;
+            border-left: 4px solid #10b981;
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        /* Habilidades con Estilo de Consola Linux */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+        .skill-card {
+            background: #1f2937;
+            border: 1px solid #374151;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            transition: all 0.3s;
+        }
+        .skill-card:hover {
+            border-color: #10b981;
+            color: #ffffff;
+            background: #111827;
+            transform: translateY(-2px);
+        }
+
+        /* Cuadrícula de Proyectos en Modo Oscuro */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1);
+        }
+        .project-header-bar {
+            background: #1f2937;
+            padding: 10px 15px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+        }
+        .dot:nth-child(2) { background: #eab308; }
+        .dot:nth-child(3) { background: #22c55e; }
+        
+        .project-body {
+            padding: 25px;
+        }
+        .project-body h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+        .project-body p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .project-tags {
+            font-size: 0.8rem;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Botón Terminal de Contacto */
+        .btn-terminal {
+            display: inline-block;
+            background: transparent;
+            color: #10b981;
+            border: 2px solid #10b981;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        .btn-terminal:hover {
+            background: #10b981;
+            color: #0b0f19;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #1f2937;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>[TU NOMBRE COMPLETO]</h1>
-        <p>Estudiante de Ingeniería & Desarrollador Web</p>
-    </header>
+    <div class="main-wrapper">
+        <!-- Encabezado -->
+        <header>
+            <h1>LeoCast31</h1>
+            <p>Ingeniería en Tecnologías de la Información | Innovación Digital</p>
+        </header>
 
-    <div class="container">
-        
+        <!-- Sección 1: Perfil -->
         <section>
-            <div class="section-number">01 sobre mí</div>
-            <h2 class="section-title">Presentación</h2>
-            <p class="section-text">
-                Tengo 18 años y soy estudiante de la carrera de Ingeniería en Tecnologías de la Información e Innovación Digital. Me apasiona el código, la resolución de problemas y el diseño de aplicaciones interactivas.
-            </p>
-            <a href="mailto:tu-correo@email.com" class="btn-contact">Contactar por Email</a>
+            <h2 class="section-title">Perfil Profesional</h2>
+            <div class="bio-box">
+                Estudiante de tercer cuatrimestre enfocado en el desarrollo de software lógico, la resolución de problemas algorítmicos complejos y la creación de arquitecturas web eficientes. Apasionado por la optimización de código y entornos Linux.
+            </div>
         </section>
 
+        <!-- Sección 2: Stack Tecnológico -->
         <section>
-            <div class="section-number">02 habilidades</div>
-            <h2 class="section-title">Herramientas</h2>
+            <h2 class="section-title">Stack de Herramientas</h2>
             <div class="skills-grid">
-                <span class="skill-tag">C</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Desarrollo Web</span>
-                <span class="skill-tag">GitHub</span>
-                <span class="skill-tag">Entornos Linux</span>
-                <span class="skill-tag">Diseño UI/UX</span>
+                <div class="skill-card">C / C++</div>
+                <div class="skill-card">Java</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">HTML5 / CSS3</div>
+                <div class="skill-card">Git & GitHub</div>
+                <div class="skill-card">Linux Shell</div>
             </div>
         </section>
 
+        <!-- Sección 3: Repositorio de Proyectos -->
         <section>
-            <div class="section-number">03 portafolio</div>
-            <h2 class="section-title">Mis Proyectos</h2>
-            <div class="projects-list">
+            <h2 class="section-title">Repositorio de Proyectos</h2>
+            <div class="projects-grid">
                 
-                <div class="project-item">
-                    <div class="project-img-placeholder">[Imagen del Proyecto 1]</div>
-                    <h3>Rediseño de Aplicación Móvil</h3>
-                    <p>Fusión de interfaces y optimización de panel inteligente para dispositivos de impresión.</p>
+                <!-- Tarjeta 1 -->
+                <div class="project-card">
+                    <div class="project-header-bar">
+                        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Smart Panel UI Optimization</h3>
+                        <p>Refactorización y diseño de lógica para interfaces móviles enfocadas en la gestión y análisis de métricas operativas.</p>
+                        <span class="project-tags">#UX/UI #Frontend</span>
+                    </div>
                 </div>
 
-                <div class="project-item">
-                    <div class="project-img-placeholder">[Imagen del Proyecto 2]</div>
-                    <h3>Proyecto Creativo de Identidad</h3>
-                    <p>Diseño y branding conceptual enfocado en maquetación web limpia y responsiva.</p>
+                <!-- Tarjeta 2 -->
+                <div class="project-card">
+                    <div class="project-header-bar">
+                        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Estructuras de Control de Datos</h3>
+                        <p>Desarrollo de algoritmos de optimización para consolas locales orientadas al manejo de bases de datos relacionales.</p>
+                        <span class="project-tags">#C++ #Backend</span>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-    </div>
+        <!-- Sección 4: Contacto -->
+        <section style="text-align: center; margin-top: 40px;">
+            <a href="mailto:tu-correo@email.com" class="btn-terminal">Ping Me (Email)</a>
+        </section>
 
-    <footer>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
-        </div>
-        <p>&copy; 2026 [Tu Nombre]. Todos los derechos reservados.</p>
-    </footer>
+        <footer>
+            <p>// © 2026 LeoCast31. Compilado con GitHub Pages.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
