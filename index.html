@@ -3,224 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeoCast31 | Dev Portfolio</title>
+    <title>Leonardo Castillo | Portafolio UX/UI</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #0b0f19;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        .main-wrapper {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 40px;
-            background: rgba(17, 24, 39, 0.7);
-            border: 1px solid #1f2937;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        header {
-            text-align: left;
-            border-bottom: 2px dashed #10b981;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
-        }
-        header::before {
-            content: "/** DEVELOPER PORTFOLIO */";
-            font-size: 0.8rem;
-            color: #10b981;
-            display: block;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        header h1 {
-            font-size: 3rem;
-            color: #ffffff;
-            font-weight: 800;
-        }
-        header p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-top: 5px;
-        }
-        section {
-            margin-bottom: 60px;
-            text-align: left;
-        }
-        .section-title {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-title::before {
-            content: ">_";
-            color: #10b981;
-            font-weight: bold;
-        }
-        .bio-box {
-            background: #111827;
-            border-left: 4px solid #10b981;
-            padding: 25px;
-            border-radius: 0 12px 12px 0;
-            font-size: 1.1rem;
-            color: #cbd5e1;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
-        }
-        .skill-card {
-            background: #1f2937;
-            border: 1px solid #374151;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #94a3b8;
-            transition: all 0.3s;
-        }
-        .skill-card:hover {
-            border-color: #10b981;
-            color: #ffffff;
-            background: #111827;
-            transform: translateY(-2px);
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .project-card {
-            background: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #10b981;
-        }
-        .project-header-bar {
-            background: #1f2937;
-            padding: 10px 15px;
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ef4444;
-        }
-        .dot:nth-child(2) { background: #eab308; }
-        .dot:nth-child(3) { background: #22c55e; }
-        .project-body {
-            padding: 25px;
-        }
-        .project-body h3 {
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        .project-body p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-        }
-        .btn-terminal {
-            display: inline-block;
-            background: transparent;
-            color: #10b981;
-            border: 2px solid #10b981;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .btn-terminal:hover {
-            background: #10b981;
-            color: #0b0f19;
-        }
-        footer {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid #1f2937;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.85rem;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #ffffff; color: #2d3748; line-height: 1.6; }
+        .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        header { text-align: left; border-bottom: 4px solid #e53e3e; padding-bottom: 25px; margin-bottom: 45px; }
+        header h1 { font-size: 3rem; color: #1a202c; font-weight: 800; }
+        header p { font-size: 1.2rem; color: #718096; margin-top: 5px; }
+        section { margin-bottom: 50px; }
+        .section-title { font-size: 1.6rem; color: #1a202c; margin-bottom: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .section-title::before { content: ""; display: inline-block; width: 10px; height: 22px; background-color: #e53e3e; }
+        .bio-box { background: #f7fafc; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; font-size: 1.1rem; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: #ffffff; border: 1px solid #e2e8f0; padding: 8px 18px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .project-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; cursor: pointer; text-decoration: none; display: block; color: inherit; transition: transform 0.2s; }
+        .project-card:hover { transform: translateY(-4px); border-color: #e53e3e; }
+        .project-tag { font-size: 0.75rem; text-transform: uppercase; color: #e53e3e; font-weight: 700; margin-bottom: 8px; display: block; }
+        .project-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .project-card p { color: #718096; font-size: 0.95rem; margin-bottom: 15px; }
+        .action-text { font-size: 0.9rem; font-weight: 700; color: #e53e3e; }
+        .modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(26, 32, 44, 0.8); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 1000; }
+        .modal:target { opacity: 1; pointer-events: auto; }
+        .modal-content { background: #ffffff; width: 90%; max-width: 750px; max-height: 80vh; border-radius: 12px; padding: 35px; position: relative; overflow-y: auto; border-top: 6px solid #e53e3e; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; text-decoration: none; color: #a0aec0; font-weight: bold; }
+        .close-modal:hover { color: #e53e3e; }
+        .modal-inner-section { margin-top: 20px; padding-top: 15px; border-top: 1px solid #edf2f7; }
+        .modal-inner-section h4 { font-size: 1rem; margin-bottom: 8px; text-transform: uppercase; }
+        .modal-inner-section ul { margin-left: 20px; margin-top: 8px; }
+        .modal-inner-section li { margin-bottom: 6px; }
+        .badge { background-color: #fff5f5; color: #c53030; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        footer { margin-top: 60px; padding: 30px; border-top: 1px solid #e2e8f0; text-align: center; color: #a0aec0; font-size: 0.85rem; }
     </style>
 </head>
 <body>
-
     <div class="main-wrapper">
         <header>
-            <h1>LeoCast31</h1>
-            <p>Ingeniería en Tecnologías de la Información | Innovación Digital</p>
+            <h1>Leonardo Castillo</h1>
+            <p>Portafolio UX/UI | Diseño de Experiencias Digitales con Claridad Visual</p>
         </header>
-
         <section>
-            <h2 class="section-title">Perfil Profesional</h2>
-            <div class="bio-box">
-                Estudiante de tercer cuatrimestre enfocado en el desarrollo de software lógico, la resolución de problemas algorítmicos complejos y la creación de arquitecturas web eficientes.
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="bio-box">Diseño soluciones lógicas e interfaces limpias. Creo estructuras web escalables que balancean los objetivos del proyecto con interacciones fluidas y eficientes para el usuario.</div>
+        </section>
+        <section>
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-container">
+                <span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span>
+                <span class="skill-tag">Desarrollo Web</span><span class="skill-tag">GitHub</span><span class="skill-tag">Entornos Linux</span><span class="skill-tag">Diseño UI/UX</span>
             </div>
         </section>
-
         <section>
-            <h2 class="section-title">Stack de Herramientas</h2>
-            <div class="skills-grid">
-                <div class="skill-card">C / C++</div>
-                <div class="skill-card">Java</div>
-                <div class="skill-card">Python</div>
-                <div class="skill-card">HTML5 / CSS3</div>
-                <div class="skill-card">Git & GitHub</div>
-                <div class="skill-card">Linux Shell</div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Repositorio de Proyectos</h2>
+            <h2 class="section-title">Dos proyectos, dos sistemas visuales</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header-bar">
-                        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Smart Panel UI Optimization</h3>
-                        <p>Refactorización y diseño de lógica para interfaces móviles enfocadas en la gestión de métricas operativas.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header-bar">
-                        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Estructuras de Control de Datos</h3>
-                        <p>Desarrollo de algoritmos de optimización para consolas locales orientadas al manejo de datos relacionales.</p>
-                    </div>
-                </div>
+                <a href="#modal-sprint" class="project-card">
+                    <span class="project-tag">Tarjeta 1 - Interfaz Omnia</span>
+                    <h3>Sprint Design</h3>
+                    <p>Diseñar una aplicación para tableta destinada a una discoteca de Nueva York.</p>
+                    <span class="action-text">Ver caso de estudio →</span>
+                </a>
+                <a href="#modal-vigor" class="project-card">
+                    <span class="project-tag">Tarjeta 2 - Caso Principal</span>
+                    <h3>VIGOR – Premium Fitness App</h3>
+                    <p>Caso de estudio que reúne estrategia, flujos, metodología, wireframes y prototipo final con fitness.</p>
+                    <span class="action-text">Ver caso de estudio →</span>
+                </a>
+                <a href="#modal-veterinaria" class="project-card">
+                    <span class="project-tag">Proyecto 3 - Código</span>
+                    <h3>Clínica Veterinaria San Francisco</h3>
+                    <p>Página web responsiva e interactiva creada para la gestión de servicios veterinarios.</p>
+                    <span class="action-text">Ver sitio web →</span>
+                </a>
             </div>
         </section>
-
-        <section style="text-align: center; margin-top: 40px;">
-            <a href="mailto:tu-correo@email.com" class="btn-terminal">Ping Me (Email)</a>
-        </section>
-
-        <footer>
-            <p>// © 2026 LeoCast31. Compilado con GitHub Pages.</p>
-        </footer>
+        <footer><p>© 2026 Leonardo Castillo. Desarrollado nativamente sobre GitHub Pages.</p></footer>
     </div>
 
+    <!-- MODAL SPRINT DESIGN -->
+    <div id="modal-sprint" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-modal">&times;</a>
+            <h2>Sprint Design - Interfaz Omnia</h2>
+            <p style="color: #718096; margin-top: 4px;">Discoteca de Nueva York</p>
+            <div class="modal-inner-section">
+                <h4>Objetivo del Proyecto</h4>
+                <p>Estructurar e idear una interfaz de alta fidelidad optimizada para tabletas comerciales dentro de entornos con baja iluminación, permitiendo una navegación expedita y gestión de comandas premium en zonas VIP.</p>
+            </div>
+            <div class="modal-inner-section">
+                <h4>Estado</h4>
+                <p>En espera... Mapeo de interacciones rápidas y flujos de pantallas adaptadas al contexto comercial nocturno.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIGOR -->
+    <div id="modal-vigor" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-modal">&times;</a>
+            <h2>VIGOR – Premium Fitness App</h2>
+            <p style="color: #718096; margin-top: 4px;">Metodología de Diseño UX/UI Completa</p>
+            <div class="modal-inner-section">
+                <h4>Objetivo del Portal Digital VIGOR</h4>
+                <p>Nuestro portal digital <span class="badge">VIGOR®</span> permitirá a los usuarios iniciar sesión con <span class="badge">FaceID</span>, usar un pase <span class="badge">QR</span>, seguir rutinas y consultar un nutricionista con <span class="badge">IA</span>, lo cual afectará a los socios actuales y nuevos por darles autonomía y respuestas 24/7 sin hacer filas.</p>
+                <ul>
+                    <li><strong>Estrategia (Cómo):</strong> Entrenamientos guiados, registro de calorías y asesoría automatizada por IA.</li>
+                    <li><strong>Destinado a:</strong> Socios actuales y nuevos integrantes del club fitness.</li>
+                    <li><strong>Métricas de éxito:</strong> Adopción del portal, consultas resueltas por la IA y retención semanal.</li>
+                </ul>
+            </div>
+            <div class="modal-inner-section">
+                <h4>Estructura (Diagrama de Venn)</h4>
+                <ul>
+                    <li><strong>Wireframe (Esqueleto):</strong> Estructura inicial centrada en botones, ubicación del QR verde y espacios de rutinas.</li>
+                    <li><strong>Mockup (Estilo):</strong> Estética visual en Dark Mode y colores de marca definidos.</li>
+                    <li><strong>Prototipo (Interacción):</strong> Nexos interactivos y simulación de clics del botón (+) en tiempo real.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VETERINARIA -->
+    <div id="modal-veterinaria" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-modal">&times;</a>
+            <h2>Clínica Veterinaria San Francisco</h2>
+            <p style="color: #718096; margin-top: 4px;">Despliegue Frontend</p>
+            <div class="modal-inner-section">
+                <h4>Información de la Interfaz</h4>
+                <p>Página web responsiva e interactiva diseñada para la gestión de servicios médicos veterinarios, control de citas para mascotas y despliegue responsivo completo.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
